@@ -32,6 +32,7 @@ const Product = ({ product, onAddtoCart }) => {
           <Typography variant="h6">
             Price : {product.price.formatted_with_symbol}
           </Typography>
+          <Typography variant="h6">{product.sku}</Typography>
         </div>
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>

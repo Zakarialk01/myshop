@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Stepper from "@material-ui/core/Stepper";
 import Paper from "@material-ui/core/Paper";
 import Step from "@material-ui/core/Step";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import StepLabel from "@material-ui/core/StepLabel";
 import Typography from "@material-ui/core/Typography";
 import PaymentForm from "../PaymentForm";
@@ -11,10 +12,10 @@ import { commerce } from "../../../lib/commerce";
 
 const Steps = ["shipping adress", "Payement Details"];
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, errorMessage, handleCapturedCheckout, order }) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [checkoutToken, setCheckoutToken] = React.useState(null);
-  const [shippingData, setshippingData] = React.useState({});
+  const [shippingData, setShippingData] = React.useState({});
 
   //generate token
 
@@ -41,7 +42,7 @@ const Checkout = ({ cart }) => {
   const classes = useStyles();
 
   const next = (data) => {
-    setshippingData(data);
+    setShippingData(data);
     nextStep();
   };
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -53,33 +54,53 @@ const Checkout = ({ cart }) => {
   };
   const Form = () => {
     if (activeStep === 0) {
-      return <AdressForm checkoutToken={checkoutToken} next={next} />;
-    } else return <PaymentForm shippingData={shippingData} cart={cart} />;
+      return (
+        <AdressForm
+          checkoutToken={checkoutToken}
+          next={next}
+          setShippingData={setShippingData}
+        />
+      );
+    } else
+      return (
+        <PaymentForm
+          shippingData={shippingData}
+          cart={cart}
+          checkoutToken={checkoutToken}
+          back={backStep}
+          error={errorMessage}
+          handleCapturedCheckout={handleCapturedCheckout}
+          order={order}
+          nextStep={nextStep}
+        />
+      );
   };
 
   return (
-    <div className={classes.tootlbar}>
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" align="center">
-            Checkout
-          </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
-            {Steps.map((step) => (
-              <Step key={step}>
-                <StepLabel>{step}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === Steps.length ? (
-            <Confirmation />
-          ) : (
-            checkoutToken && <Form />
-          )}{" "}
-          {/*weget an error of checkoutToken.id (id is undefined to fix the problem we should add a condition in this line if we  have checkoutToken when we have the checkout token we render the  form) */}
-        </Paper>
-      </main>
-    </div>
+    <CssBaseline>
+      <div className={classes.tootlbar}>
+        <main className={classes.layout}>
+          <Paper className={classes.paper}>
+            <Typography variant="h4" align="center">
+              Checkout
+            </Typography>
+            <Stepper activeStep={activeStep} className={classes.stepper}>
+              {Steps.map((step) => (
+                <Step key={step}>
+                  <StepLabel>{step}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            {activeStep === Steps.length ? (
+              <Confirmation />
+            ) : (
+              checkoutToken && <Form />
+            )}{" "}
+            {/*weget an error of checkoutToken.id (id is undefined to fix the problem we should add a condition in this line if we  have checkoutToken when we have the checkout token we render the  form) */}
+          </Paper>
+        </main>
+      </div>
+    </CssBaseline>
   );
 };
 

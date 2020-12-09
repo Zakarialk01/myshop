@@ -52,7 +52,7 @@ const AdressForm = ({ checkoutToken, next }) => {
     );
 
     setShippingCountries(countries);
-    setShippingCountry(Object.keys(countries)[2]); //[2] to updated to morroco in the input
+    setShippingCountry(Object.keys(countries)[10]); //[2] to updated to morroco in the input
   };
 
   //fetch subdivisions in each country

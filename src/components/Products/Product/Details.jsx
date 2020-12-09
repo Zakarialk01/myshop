@@ -15,6 +15,7 @@ import IconButton from "@material-ui/core/Button";
 
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./styles";
+
 function PaperComponent(props) {
   return (
     <Draggable
@@ -65,8 +66,7 @@ const Details = ({ product }) => {
                 return (
                   <CardMedia className={classes.mediaModal} image={asset.url} />
                 );
-              })}
-
+              })}{" "}
               <CardContent>
                 <div className={classes.cardContent}>
                   <Typography variant="h6" glutterBottom>
