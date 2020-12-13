@@ -76,6 +76,7 @@ const Details = ({ product }) => {
                     {product.price.formatted_with_symbol}
                   </Typography>
                 </div>
+                <h4>Description</h4>
                 <Typography
                   dangerouslySetInnerHTML={{ __html: product.description }}
                   body="h2"

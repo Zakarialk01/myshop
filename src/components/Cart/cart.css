@@ -1,0 +1,13 @@
+.cardDetails {
+  display: flex;
+
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .cardDetails {
+    width: 50%;
+    display: inline-block;
+  }
+}

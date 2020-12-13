@@ -3,6 +3,7 @@ import { Container, Typography, Button, Grid } from "@material-ui/core";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 import useStyles from "./style";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
 const Cart = ({
   cart,
@@ -15,7 +16,29 @@ const Cart = ({
   const EmptyCart = () => {
     return (
       <>
-        <h1 style={{ textAlign: "center" }}>Your Basket is empty ! </h1>
+        <div
+          style={{
+            position: "absolute",
+            left: "0",
+            top: "50%",
+            width: "100%",
+            textAlign: "center",
+            fontSize: "50px",
+            fontWeight: 900,
+          }}
+        >
+          🛒 Your Basket is empty{" "}
+          <Button
+            component={Link}
+            to="/"
+            size="large"
+            type="button"
+            variant="contained"
+            color="primary"
+          >
+            Fill the basket 🛒
+          </Button>
+        </div>
       </>
     );
   };
@@ -58,7 +81,6 @@ const Cart = ({
             type="button"
             variant="contained"
             color="primary"
-            onClick={refresh}
           >
             Checkout
           </Button>
@@ -71,7 +93,7 @@ const Cart = ({
   return (
     <Container>
       <div className={classes.toolbar} />
-      <Typography className={classes.title} variant="h3" gutterBottom>
+      <Typography className={classes.title} variant="h2" gutterBottom>
         Your Shopping Cart
       </Typography>
       {!cart.line_items.length ? EmptyCart() : RenderCart()}

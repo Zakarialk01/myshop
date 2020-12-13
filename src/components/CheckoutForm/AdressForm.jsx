@@ -64,7 +64,7 @@ const AdressForm = ({ checkoutToken, next }) => {
       countryCode
     );
     setShippingSubDivisions(subdivisions);
-    setShippingSubDivision(Object.keys(subdivisions)[0]);
+    setShippingSubDivision(Object.keys(subdivisions)[25]);
   };
 
   //fetchshippingoption with getshippigoptions documentation in commerce.js

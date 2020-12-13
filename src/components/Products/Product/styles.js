@@ -13,11 +13,17 @@ export default makeStyles((theme)  => ({
     marginRight:"auto"
   },
   mediaModal:{
-    height: 50,
+   /* height: 50,
     paddingTop: '56.25%', // 16:9
     width:"450px",
     marginLeft:"auto",
-    marginRight:"auto"
+    marginRight:"auto"*/
+    height: 50,
+    paddingTop: '56.25%', // 16:9
+    width:"300px",
+    marginLeft:"auto",
+    marginRight:"auto",
+    borderRadius:"10px"
   },
   cardActions: {
 display:"flex",
