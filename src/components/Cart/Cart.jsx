@@ -30,7 +30,7 @@ const Cart = ({
           🛒 Your Basket is empty{" "}
           <Button
             component={Link}
-            to="/"
+            to="/Products"
             size="large"
             type="button"
             variant="contained"

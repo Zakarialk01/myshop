@@ -23,7 +23,7 @@ const Navbar = ({ totalItems }) => {
         {/*<Link to="/">*/}
         <Typography
           component={Link}
-          to="/"
+          to="/Products"
           variant="h6"
           className={classes.title}
           color="inherit"
@@ -40,7 +40,7 @@ const Navbar = ({ totalItems }) => {
         <div className={classes.grow} />
         <div className={classes.button} />
         {/*} <Link to="/Cart">*/}
-        {location.pathname === "/" && ( // normally we use ? : but when we do && its appear only if the condition is true in the first place
+        {location.pathname === "/Products" && ( // normally we use ? : but when we do && its appear only if the condition is true in the first place
           <div>
             <IconButton
               component={Link}

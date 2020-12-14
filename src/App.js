@@ -4,14 +4,13 @@ import Navbar from "./components/Navbar/Navbar";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/CheckoutForm/Checkout/Checkout";
 import { commerce } from "./lib/commerce";
+import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import logo from "./assets/commerce.png";
-import "./index.css"
+import "./index.css";
 
 function App() {
-  
-
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -112,18 +111,22 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
+            {" "}
+            <Home />
+          </Route>
+          <Route exact path="/Products">
+            <Navbar totalItems={cart.total_items} />
             <Products
               products={products}
               loading={loading}
               onAddtoCart={handleAddtoCart}
-              refresh={refreshCart}
             />
           </Route>
 
           <Route exact path="/Cart">
+            <Navbar totalItems={cart.total_items} />
             <Cart
               cart={cart}
               onUpdateCart={updateCart}
@@ -132,6 +135,7 @@ function App() {
             />
           </Route>
           <Route exact path="/Checkout">
+            <Navbar totalItems={cart.total_items} />
             <Checkout
               cart={cart}
               order={order}
@@ -141,7 +145,6 @@ function App() {
             />
           </Route>
         </Switch>
-       
       </div>
     </Router>
   );
