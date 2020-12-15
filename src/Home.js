@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "./assets/commerce.png";
 import shop from "./assets/eCommerce.jpg";
 import compatible from "./assets/compatible.jpg";
 import support from "./assets/support.png";
+import produit from "./assets/produit.png";
+import payment from "./assets/payment.png";
+import satisfaction from "./assets/satisfaction.jpg";
 import zakaria from "./assets/zakaria.jpg";
 import moneyback from "./assets/moneyback.jpg";
 import { Link } from "react-router-dom";
@@ -93,9 +96,9 @@ const Home = () => {
       <div className="row2">
         <div className="column">
           <div className="card">
-            <img src={compatible} width="200px"></img>
-            <h3>Compatibility</h3>
-            <p>Compatibility with all devices</p>
+            <img src={produit} width="127px"></img>
+            <h3>Products</h3>
+            <p>All products are originals </p>
           </div>
         </div>
 
@@ -103,10 +106,10 @@ const Home = () => {
           <div className="card">
             <img
               style={{ borderRadius: "50%" }}
-              src={support}
-              width="120px"
+              src={payment}
+              width="337px"
             ></img>
-            <h3>24/7 Online support</h3>
+            <h3>Payment options</h3>
 
             <p>We are available anytime for anything</p>
           </div>
@@ -114,9 +117,9 @@ const Home = () => {
 
         <div className="column">
           <div className="card">
-            <img src={moneyback} width="119px"></img>
-            <h3>100% Money back </h3>
-            <p>Money back guarantee</p>
+            <img src={satisfaction} width="126px"></img>
+            <h3> Client </h3>
+            <p>customer satisfaction is my goal</p>
           </div>
         </div>
       </div>
