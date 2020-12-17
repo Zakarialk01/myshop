@@ -9,9 +9,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 import Review from "./Review";
 
-const stripePromise = loadStripe(
-  "pk_test_51HwFFsI1lDP6De1axAedCt8iNW1Bs4OXqn9QOBw2xrIgmi5dJpnnE9f1DcN9ti5qnBsaaKcTxSnPiUQrZzsHw6Dz00byn1G21y"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 console.log(stripePromise);
 
 const PaymentForm = ({
@@ -35,7 +33,7 @@ const PaymentForm = ({
       card: cardElement,
     });
     if (error) {
-      console.log(error);
+      console.log("[error]", error);
     } else {
       const orderData = {
         line_items: checkoutToken.live.line_items,
@@ -46,9 +44,10 @@ const PaymentForm = ({
         },
         shipping: {
           name: "International",
-          street: shippingData.address1,
+          street: shippingData.adress1,
+          street2: shippingData.adress2,
           town_city: shippingData.city,
-          county_state: shippingData.shippingSubdivision,
+          country_state: shippingData.shippingSubdivision,
           postal_zip_code: shippingData.zip,
           country: shippingData.shippingCountry,
         },
@@ -64,6 +63,7 @@ const PaymentForm = ({
       nextStep();
     }
   };
+  console.log(handleCapturedCheckout);
   return (
     <div>
       <Review checkoutToken={checkoutToken} cart={cart} />

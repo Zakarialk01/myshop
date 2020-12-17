@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./assets/commerce.png";
 import shop from "./assets/eCommerce.jpg";
 import compatible from "./assets/compatible.jpg";
@@ -10,8 +10,61 @@ import zakaria from "./assets/zakaria.jpg";
 import moneyback from "./assets/moneyback.jpg";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import { db } from "./base";
+import { useForm } from "react-hook-form";
 
 const Home = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+
+  const [loader, setLoader] = useState(false);
+  const { handleSubmit, register, errors } = useForm();
+  const onSubmit = (values) => {
+    console.log(values);
+  };
+
+  const clickHandler = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleName = (e) => {
+    console.log(e);
+    setName(e.target.value);
+  };
+  const handleMessage = (e) => {
+    setMessage(e.target.value);
+  };
+  const checkSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset(); //reset inputs after submit
+    setLoader(true);
+
+    db.collection("customer")
+      .add({
+        email: email,
+        name: name,
+        message: message,
+      })
+      .then(() => {
+        setLoader(false);
+        alert("Your message has been submitted👍");
+      })
+      .catch((error) => {
+        alert(error.message);
+        setLoader(false);
+      });
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
   return (
     <>
       <div className="header">
@@ -146,25 +199,52 @@ const Home = () => {
             </div>
           </div>
           <div class="column2">
-            <form>
+            <form onSubmit={checkSubmit}>
               <label for="fname">Full Name</label>
               <input
+                className="input"
                 type="text"
                 id="fname"
                 name="fullname"
                 placeholder="Your full name.."
+                onChange={handleName}
+              />
+              <label for="country">Your Email</label>
+              <input
+                className="input"
+                type="email"
+                ref={register({
+                  required: "Required",
+                  pattern: {
+                    value: " [a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$",
+                    message: "invalid email address",
+                  },
+                })}
+                placeholder=" your email please "
+                onChange={handleEmail}
               />
 
-              <label for="country">Your Email</label>
-              <input type="email" placeholder=" your email here please" />
+              {errors.email && errors.email.message}
               <label for="subject">Subject</label>
               <textarea
+                className="textarea"
                 id="subject"
                 name="subject"
                 placeholder="Write something.."
                 style={{ height: "170px" }}
+                onChange={handleMessage}
               ></textarea>
-              <input type="submit" value="Submit" />
+              <button
+                className="button"
+                type="submit"
+                value="submit"
+                onSubmit={handleSubmit(onSubmit)}
+                disabled={!message}
+                disabled={!name}
+                disabled={!email}
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>

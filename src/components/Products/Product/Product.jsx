@@ -31,6 +31,7 @@ const Product = ({ product, onAddtoCart }) => {
           <Typography variant="h6" glutterBottom>
             {product.name}
           </Typography>
+
           <Typography variant="h6">
             Price : {product.price.formatted_with_symbol}
           </Typography>

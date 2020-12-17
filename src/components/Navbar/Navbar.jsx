@@ -34,7 +34,7 @@ const Navbar = ({ totalItems }) => {
             height="25px"
             className={classes.image}
           />{" "}
-          Zakaria's Shop
+          Room of shoes
         </Typography>
         {/*} </Link>*/}
         <div className={classes.grow} />

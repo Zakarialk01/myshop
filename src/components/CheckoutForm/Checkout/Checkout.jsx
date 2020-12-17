@@ -9,7 +9,8 @@ import PaymentForm from "../PaymentForm";
 import AdressForm from "../AdressForm";
 import useStyles from "./style";
 import { commerce } from "../../../lib/commerce";
-
+import { CircularProgress, Divider, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 const Steps = ["shipping adress", "Payement Details"];
 
 const Checkout = ({ cart, errorMessage, handleCapturedCheckout, order }) => {
@@ -49,9 +50,41 @@ const Checkout = ({ cart, errorMessage, handleCapturedCheckout, order }) => {
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
   // we will passe it as a prop in adresssform
 
-  const Confirmation = () => {
-    return <div>Confirmation</div>;
-  };
+  const Confirmation = () =>
+    order.customer ? (
+      <>
+        <div>
+          <Typography variant="h5"> Thank you for your purchase, </Typography>
+          <Divider className={classes.divider} />
+          <Typography variant="subtitle2">
+            {" "}
+            Order ref: {order.customer_reference}
+          </Typography>
+        </div>
+        <br></br>
+        <Button
+          component={Link}
+          to="/Products"
+          variant="contained"
+          color="secondary"
+        >
+          Back to Products page
+        </Button>
+      </>
+    ) : (
+      <>
+        <div className={classes.spinner}>
+          <CircularProgress />
+        </div>
+      </>
+    );
+  if (errorMessage) {
+    <>
+      <div>
+        <Typography variant="h5">{errorMessage}</Typography>
+      </div>
+    </>;
+  }
   const Form = () => {
     if (activeStep === 0) {
       return (

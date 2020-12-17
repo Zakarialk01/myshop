@@ -116,20 +116,13 @@ const AdressForm = ({ checkoutToken, next }) => {
           )}
         >
           <Grid container spacing={3}>
-            <CustomTextField required name="First Name" label="First Name" />
-            <CustomTextField
-              required
-              name="Adress Line 1"
-              label="Adress line 1"
-            />
-            <CustomTextField
-              required
-              name="Adress Line 2"
-              label="Adress Line 2"
-            />
-            <CustomTextField required name="City" label="City" />
-            <CustomTextField required name="Zip" label="Zip / Postal code" />
-            <CustomTextField required name="Email" label="Email" />
+            <CustomTextField required name="firstName" label="First Name" />
+            <CustomTextField required name="lastName" label="Last name" />
+            <CustomTextField required name="adress1" label="Adress line 1" />
+            <CustomTextField required name="adress2" label="Adress Line 2" />
+            <CustomTextField required name="city" label="City" />
+            <CustomTextField required name="zip" label="Zip / Postal code" />
+            <CustomTextField required name="email" label="Email" />
             <Grid item xs={6} xm={6}>
               <InputLabel>Shipping Country</InputLabel>
               <Select

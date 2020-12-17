@@ -2,26 +2,25 @@ import React from "react";
 import {
   Typography,
   Button,
-
   CardMedia,
   Card,
   CardContent,
   CardActions,
 } from "@material-ui/core";
 import useStyles from "./style";
-const CartItem = ({ item,Remove,Update }) => {
+const CartItem = ({ item, Remove, Update }) => {
   const classes = useStyles();
-  const RemoveItem=()=>{
+  const RemoveItem = () => {
     Remove(item.id);
-  }
-  const UpdateMinceQuantity=()=>{
-    Update(item.id,item.quantity - 1)
-  }
-  const UpdatePlusQuantity=()=>{
-    Update(item.id,item.quantity + 1)
-  }
+  };
+  const UpdateMinceQuantity = () => {
+    Update(item.id, item.quantity - 1);
+  };
+  const UpdatePlusQuantity = () => {
+    Update(item.id, item.quantity + 1);
+  };
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardMedia
         className={classes.media}
         image={item.media.source}
@@ -33,23 +32,25 @@ const CartItem = ({ item,Remove,Update }) => {
 
         <Typography variant="h6">
           {" "}
-          The total price is :
-          {item.line_total.formatted_with_symbol}
+          Price : {item.line_total.formatted_with_symbol}
         </Typography>
         <Typography variant="h6">Quantity : {item.quantity}</Typography>
         <CardActions className={classes.cardActions}>
-      
           <div className={classes.buttons}>
-         
-            <Button type="button" onClick={UpdateMinceQuantity}  >
+            <Button type="button" onClick={UpdateMinceQuantity}>
               -
             </Button>
-      
-            <Button type="button" onClick={UpdatePlusQuantity}  >
+
+            <Button type="button" onClick={UpdatePlusQuantity}>
               +
             </Button>
           </div>
-          <Button onClick={RemoveItem} variant="contained" type="button" color="secondary">
+          <Button
+            onClick={RemoveItem}
+            variant="contained"
+            type="button"
+            color="secondary"
+          >
             Remove
           </Button>
         </CardActions>

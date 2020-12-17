@@ -57,9 +57,9 @@ function App() {
   React.useEffect(() => {
     getProduct();
     retrieveCart();
+    console.log(order);
 
     //console.log(products)
-    console.log(cart);
   }, []);
 
   const refreshCart = async () => {

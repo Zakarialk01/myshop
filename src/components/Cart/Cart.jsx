@@ -3,15 +3,8 @@ import { Container, Typography, Button, Grid } from "@material-ui/core";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 import useStyles from "./style";
-import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
-const Cart = ({
-  cart,
-  onUpdateCart,
-  onRemoveFromCart,
-  onEmptyCart,
-  refresh,
-}) => {
+const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
   const EmptyCart = () => {
     return (
