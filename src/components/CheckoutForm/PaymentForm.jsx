@@ -43,11 +43,11 @@ const PaymentForm = ({
           email: shippingData.email,
         },
         shipping: {
-          name: "International",
+          name: "Domestic",
           street: shippingData.adress1,
-          street2: shippingData.adress2,
+
           town_city: shippingData.city,
-          country_state: shippingData.shippingSubdivision,
+          county_state: shippingData.shippingSubdivision,
           postal_zip_code: shippingData.zip,
           country: shippingData.shippingCountry,
         },

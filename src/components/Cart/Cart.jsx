@@ -3,7 +3,7 @@ import { Container, Typography, Button, Grid } from "@material-ui/core";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 import useStyles from "./style";
-
+import "./cart.css";
 const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
   const EmptyCart = () => {
@@ -54,7 +54,11 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
         <div className={classes.cardDetails}>
           <Typography variant="h5">
             {" "}
-            The total price is : {cart.subtotal.formatted_with_symbol}
+            The total price is :
+            <span className="h5">
+              {" "}
+              {cart.subtotal.formatted_with_symbol}
+            </span>{" "}
           </Typography>
           <Button
             onClick={emptyCart}
@@ -86,9 +90,7 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   return (
     <Container>
       <div className={classes.toolbar} />
-      <Typography className={classes.title} variant="h2" gutterBottom>
-        Your Shopping Cart
-      </Typography>
+      <h6 className="title">Your Shopping Cart</h6>
       {!cart.line_items.length ? EmptyCart() : RenderCart()}
     </Container>
   );
