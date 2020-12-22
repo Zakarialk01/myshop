@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Typography, Button, Grid } from "@material-ui/core";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 import useStyles from "./style";
+import logo from "../../assets/commerce.png";
 import "./cart.css";
 const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
@@ -17,10 +18,12 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
             width: "100%",
             textAlign: "center",
             fontSize: "50px",
-            fontWeight: 900,
+
+            fontFamily: "system-ui",
+            fontWeight: "bold",
           }}
         >
-          🛒 Your Basket is empty{" "}
+          Your Basket is empty{" "}
           <Button
             component={Link}
             to="/Products"
@@ -39,6 +42,7 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
     const emptyCart = () => {
       onEmptyCart(cart.line_items.id);
     };
+
     return (
       <Grid container justify="center" spacing={8} gutterBottom>
         {cart.line_items.map((item) => (

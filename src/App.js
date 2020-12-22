@@ -118,11 +118,7 @@ function App() {
           </Route>
           <Route exact path="/Products">
             <Navbar totalItems={cart.total_items} />
-            <Products
-              products={products}
-              loading={loading}
-              onAddtoCart={handleAddtoCart}
-            />
+            <Products products={products} onAddtoCart={handleAddtoCart} />
           </Route>
 
           <Route exact path="/Cart">
@@ -130,6 +126,7 @@ function App() {
             <Cart
               cart={cart}
               onUpdateCart={updateCart}
+              loading={loading}
               onRemoveFromCart={removeFromCart}
               onEmptyCart={emptyCart}
             />
@@ -139,6 +136,7 @@ function App() {
             <Checkout
               cart={cart}
               order={order}
+              loading={loading}
               handleCapturedCheckout={handleCapturedCheckout}
               errorMessage={errorMessage}
               refresh={refreshCart}

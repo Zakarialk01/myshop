@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+//import logo from "./assets/commerce.png";
 import logo from "./assets/commerce.png";
 import shop from "./assets/eCommerce.jpg";
 import compatible from "./assets/compatible.jpg";
@@ -7,11 +8,18 @@ import produit from "./assets/produit.png";
 import payment from "./assets/payment.png";
 import satisfaction from "./assets/satisfaction.jpg";
 import zakaria from "./assets/zakaria.jpg";
+import Louboutin from "./assets/Louboutin.gif";
+import Balenciaga from "./assets/Balenciaga.jpg";
+import Adidas from "./assets/Adidas.png";
+import Mcqueen from "./assets/Mcqueen.png";
 import moneyback from "./assets/moneyback.jpg";
+
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { db } from "./base";
 import { useForm } from "react-hook-form";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -64,6 +72,9 @@ const Home = () => {
     setEmail("");
     setMessage("");
   };
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   return (
     <>
@@ -76,14 +87,20 @@ const Home = () => {
             <nav>
               <ul>
                 <li>
-                  <a href="#">Home</a>
+                  <a className="scroll" href="#">
+                    Home
+                  </a>
                 </li>
                 <li>
-                  <a href="#advantages">Benefits</a>
+                  <a className="scroll" href="#advantages">
+                    Benefits
+                  </a>
                 </li>
 
                 <li>
-                  <a href="#contact">Contact</a>
+                  <a className="scroll" href="#contact">
+                    Contact
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -116,10 +133,10 @@ const Home = () => {
       <h1 className="h1" id="advantages">
         Our <span className="span"> Advantages</span>{" "}
       </h1>
-      <div className="row2">
+      <div className="row2" data-aos="zoom-in" data-aos-duration="2000">
         <div className="column">
           <div className="card">
-            <img src={compatible} width="200px"></img>
+            <img src={compatible} width="120px"></img>
             <h3>Compatibility</h3>
             <p>Compatibility with all devices</p>
           </div>
@@ -146,7 +163,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="row2">
+      <div className="row2" data-aos="zoom-in" data-aos-duration="2000">
         <div className="column">
           <div className="card">
             <img src={produit} width="127px"></img>
@@ -157,20 +174,16 @@ const Home = () => {
 
         <div className="column">
           <div className="card">
-            <img
-              style={{ borderRadius: "50%" }}
-              src={payment}
-              width="337px"
-            ></img>
+            <img className="payment" src={payment} width="283px"></img>
             <h3>Payment options</h3>
 
-            <p>We are available anytime for anything</p>
+            <p>stripe options</p>
           </div>
         </div>
 
         <div className="column">
           <div className="card">
-            <img src={satisfaction} width="126px"></img>
+            <img className="benefits" src={satisfaction} width="126px"></img>
             <h3> Client </h3>
             <p>customer satisfaction is my goal</p>
           </div>
@@ -180,13 +193,13 @@ const Home = () => {
         <div style={{ textAlign: "center" }}>
           <h1 className="h11">Contact Us</h1>
         </div>
-        <div className="row3">
+        <div className="row3 " data-aos="fade-up" data-aos-duration="1500">
           <div className="column2">
             <div className="card2">
               <div className="flex">
                 <img className="image" src={zakaria} />
                 <div style={{ marginTop: "10%" }}>
-                  <h3>for all my informations this is my website :</h3>
+                  <h3>For more informations :</h3>
                   <a
                     className="a"
                     href="https://loukilizakaria-a597d.web.app/"
@@ -249,14 +262,108 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <footer>
-        <div className="footerContainer">
-          <h5 className="copyright">
-            Copyright © 2020 All right reserved || Design with ❤️ by
-            LOUKILIZAKARIA{" "}
-          </h5>
+      <div className="brands" data-aos="zoom-in" data-aos-duration="1500">
+        <div className="small-container">
+          <div className="row">
+            <div className="row5">
+              <img src={Adidas} />
+            </div>
+            <div className="row5">
+              <img src={Mcqueen} />
+            </div>
+            <div className="row5">
+              <img src={Balenciaga} />
+            </div>
+            <div className="row5">
+              <img src={Louboutin} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer2">
+        <div class="container4">
+          <div class="row4">
+            <div class="footer2-col">
+              <h4>company</h4>
+              <ul>
+                <li>
+                  <a href="#">about us</a>
+                </li>
+                <li>
+                  <a href="#">our services</a>
+                </li>
+                <li>
+                  <a href="#">privacy policy</a>
+                </li>
+                <li>
+                  <a href="#">affiliate program</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer2-col">
+              <h4>get help</h4>
+              <ul>
+                <li>
+                  <a href="#">FAQ</a>
+                </li>
+                <li>
+                  <a href="#">shipping</a>
+                </li>
+                <li>
+                  <a href="#">returns</a>
+                </li>
+                <li>
+                  <a href="#">order status</a>
+                </li>
+                <li>
+                  <a href="#">payment options</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer2-col">
+              <h4>online shop</h4>
+              <ul>
+                <li>
+                  <a href="#">watch</a>
+                </li>
+                <li>
+                  <a href="#">bag</a>
+                </li>
+                <li>
+                  <a href="#">shoes</a>
+                </li>
+                <li>
+                  <a href="#">dress</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer2-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
+
+      <div className="copyright">
+        <h5 className="copyright">
+          Copyright © 2020 All right reserved || Design with ❤️ by
+          LOUKILIZAKARIA{" "}
+        </h5>
+      </div>
     </>
   );
 };

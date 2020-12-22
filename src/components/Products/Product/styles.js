@@ -4,6 +4,7 @@ export default makeStyles((theme) => ({
   root: {
     // maxWidth: 345, original width style
     maxWidth: "100%",
+    boxShadow: `0px 4px 8px  rgba(0, 0, 0, 0.5)`,
   },
   media: {
     height: 0,

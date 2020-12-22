@@ -3,11 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
 .header {
   background-color: rgb(0, 21, 41);
+  /*border-bottom-right-radius: 600px 130px;*/
   font-family: system-ui;
   font-weight: bold;
   color: white;
@@ -36,7 +38,9 @@ a {
   text-decoration: none;
   color: white;
 }
-
+.scroll:hover {
+  font-size: 20px;
+}
 h1 {
   font-size: 40px;
 }
@@ -104,7 +108,8 @@ p {
 }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
+  /*600*/
   .column {
     width: 100%;
     display: block;
@@ -237,11 +242,9 @@ label {
 .a:hover {
   font-size: 20px;
 }
-footer {
+.copyright {
   text-align: center;
-  background-color: rgb(19 45 66);
-
-  padding: 10px;
+  background-color: #001529;
 }
 
 h5.copyright {
@@ -263,9 +266,113 @@ h5.copyright {
   font-weight: bold;
   border-radius: 50px;
 }
+.button:hover {
+  background-color: rgb(17, 79, 112);
+}
+.brands {
+  margin: 20px auto;
+}
+.row5 {
+  width: 150px;
+}
+.row5 img {
+  width: 100%;
+  cursor: pointer;
+  filter: grayscale(-50%);
+}
+/*footer {
+  background: #001529;
+  font-size: 14px;
+  padding: 20px 0 60px;
+
+  font-family: system-ui;
+  font-weight: bold;
+}
+*/
+
+.container4 {
+  max-width: 1170px;
+  margin: auto;
+}
+.row4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+}
+.footer2 {
+  background-color: #001529;
+  padding: 70px 0;
+}
+.footer2-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer2-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer2-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer2-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer2-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer2-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer2-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer2-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+/*responsive*/
+@media (max-width: 767px) {
+}
+@media (max-width: 774px) {
+  .footer2-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 990px) {
   .column2 {
     width: 100%;
     margin-top: 0;
