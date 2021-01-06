@@ -5,10 +5,12 @@ import Cart from "./components/Cart/Cart";
 import Checkout from "./components/CheckoutForm/Checkout/Checkout";
 import { commerce } from "./lib/commerce";
 import Home from "./Home";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import logo from "./assets/commerce.png";
 import "./index.css";
+import { CircularProgress } from "@material-ui/core";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -82,6 +84,7 @@ function App() {
     }
     //we will passing order and handlecapturedcheckout and errormessage as a props in checkout
   };
+
   if (loading)
     return (
       <div
@@ -116,11 +119,17 @@ function App() {
             {" "}
             <Home />
           </Route>
-          <Route exact path="/Products">
-            <Navbar totalItems={cart.total_items} />
-            <Products products={products} onAddtoCart={handleAddtoCart} />
-          </Route>
-
+          {products ? (
+            <Route exact path="/Products">
+              <Navbar totalItems={cart.total_items} />
+              <Products products={products} onAddtoCart={handleAddtoCart} />
+            </Route>
+          ) : (
+            <div>
+              {" "}
+              <CircularProgress />
+            </div>
+          )}
           <Route exact path="/Cart">
             <Navbar totalItems={cart.total_items} />
             <Cart

@@ -304,6 +304,7 @@ ul {
 .footer2 {
   background-color: #001529;
   padding: 70px 0;
+  font-family: system-ui;
 }
 .footer2-col {
   width: 25%;

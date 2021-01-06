@@ -3,28 +3,17 @@ import { Container, Typography, Button, Grid } from "@material-ui/core";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 import useStyles from "./style";
-import logo from "../../assets/commerce.png";
+import empty from "../../assets/emptycart.png";
+
 import "./cart.css";
 const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
   const EmptyCart = () => {
     return (
-      <>
-        <div
-          style={{
-            position: "absolute",
-            left: "0",
-            top: "50%",
-            width: "100%",
-            textAlign: "center",
-            fontSize: "50px",
-
-            fontFamily: "system-ui",
-            fontWeight: "bold",
-          }}
-        >
-          Your Basket is empty{" "}
+      <div className="emptycart" id="#">
+        <div>
           <Button
+            className={classes.button}
             component={Link}
             to="/Products"
             size="large"
@@ -34,8 +23,9 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
           >
             Fill the basket 🛒
           </Button>
+          <img className="img" src={empty} />
         </div>
-      </>
+      </div>
     );
   };
   const RenderCart = () => {
@@ -94,7 +84,12 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   return (
     <Container>
       <div className={classes.toolbar} />
-      <h6 className="title">Your Shopping Cart</h6>
+      <h6 className="title" style={{ fontFamily: "system-ui" }}>
+        Your Shopping Cart
+      </h6>
+      <br></br>
+      <br></br>
+      <hr></hr>
       {!cart.line_items.length ? EmptyCart() : RenderCart()}
     </Container>
   );

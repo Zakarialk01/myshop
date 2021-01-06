@@ -193,7 +193,7 @@ const Home = () => {
         <div style={{ textAlign: "center" }}>
           <h1 className="h11">Contact Us</h1>
         </div>
-        <div className="row3 " data-aos="fade-up" data-aos-duration="1500">
+        <div className="row3 " data-aos="fade-up" data-aos-duration="2500">
           <div className="column2">
             <div className="card2">
               <div className="flex">

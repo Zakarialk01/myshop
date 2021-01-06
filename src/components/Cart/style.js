@@ -25,4 +25,8 @@ export default makeStyles((theme) => ({
   link: {
     textDecoration: "none",
   },
+  button: {
+    width: "100%",
+    fontFamily: "system-ui",
+  },
 }));

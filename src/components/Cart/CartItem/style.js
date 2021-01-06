@@ -6,7 +6,7 @@ export default makeStyles(() => ({
     boxShadow: `0px 4px 8px  rgba(0, 0, 0, 0.5)`,
   },
   media: {
-    height: 260,
+    height: 160,
   },
   cardContent: {
     display: "flex",
