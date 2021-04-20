@@ -14,8 +14,7 @@ const Products = ({ products, onAddtoCart }) => {
     width: "50%",
     margin: "20px auto",
     padding: "10px",
-    border: "none",
-    boxShadow: `0px 4px 8px  #3f51b5`,
+    border: "1px solid black",
   };
 
   const [visible, setVisible] = React.useState(8);

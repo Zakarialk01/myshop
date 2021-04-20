@@ -37,11 +37,19 @@ const CartItem = ({ item, Remove, Update }) => {
         <Typography variant="h6">Quantity : {item.quantity}</Typography>
         <CardActions className={classes.cardActions}>
           <div className={classes.buttons}>
-            <Button type="button" onClick={UpdateMinceQuantity}>
+            <Button
+              style={{ background: "whitesmoke" }}
+              type="button"
+              onClick={UpdateMinceQuantity}
+            >
               -
             </Button>
 
-            <Button type="button" onClick={UpdatePlusQuantity}>
+            <Button
+              style={{ background: "whitesmoke" }}
+              type="button"
+              onClick={UpdatePlusQuantity}
+            >
               +
             </Button>
           </div>

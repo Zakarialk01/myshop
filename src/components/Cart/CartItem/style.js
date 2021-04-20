@@ -18,5 +18,8 @@ export default makeStyles(() => ({
   buttons: {
     display: "flex",
     alignItems: "center",
+    "&:hover": {
+      backgroundColor: "whitesmoke",
+    },
   },
 }));

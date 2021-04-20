@@ -1,16 +1,12 @@
 .title {
   margin-top: 2%;
   font-size: 40px;
-  color: #1835a7;
 
   text-align: center;
-  -webkit-animation: title 1s ease-in-out infinite alternate;
-  -moz-animation: title 1s ease-in-out infinite alternate;
-  animation: title 1s ease-in-out infinite alternate;
 }
 .h5 {
-  color: rgb(2, 2, 2);
-  font-weight: 900;
+  color: #020202;
+  font-weight: 700;
 }
 .img {
   margin: 0 auto;

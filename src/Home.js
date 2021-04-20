@@ -13,7 +13,7 @@ import Balenciaga from "./assets/Balenciaga.jpg";
 import Adidas from "./assets/Adidas.png";
 import Mcqueen from "./assets/Mcqueen.png";
 import moneyback from "./assets/moneyback.jpg";
-
+import eco from "./assets/eco.png";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { db } from "./base";
@@ -49,6 +49,7 @@ const Home = () => {
   const handleMessage = (e) => {
     setMessage(e.target.value);
   };
+  /*
   const checkSubmit = (e) => {
     e.preventDefault();
     e.target.reset(); //reset inputs after submit
@@ -71,7 +72,7 @@ const Home = () => {
     setName("");
     setEmail("");
     setMessage("");
-  };
+  };*/
   useEffect(() => {
     Aos.init();
   }, []);
@@ -212,7 +213,9 @@ const Home = () => {
             </div>
           </div>
           <div class="column2">
-            <form onSubmit={checkSubmit}>
+            <form>
+              {" "}
+              {/*onSubmit={checkSubmit}*/}
               <label for="fname">Full Name</label>
               <input
                 className="input"
@@ -236,7 +239,6 @@ const Home = () => {
                 placeholder=" your email please "
                 onChange={handleEmail}
               />
-
               {errors.email && errors.email.message}
               <label for="subject">Subject</label>
               <textarea

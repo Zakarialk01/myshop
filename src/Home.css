@@ -304,14 +304,15 @@ ul {
 .footer2 {
   background-color: #001529;
   padding: 70px 0;
-  font-family: system-ui;
+  font-family: sans-serif;
+  font-weight: 800;
 }
 .footer2-col {
   width: 25%;
   padding: 0 15px;
 }
 .footer2-col h4 {
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
   text-transform: capitalize;
   margin-bottom: 35px;
